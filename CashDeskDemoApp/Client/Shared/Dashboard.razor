@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using CashDeskDemoApp.Shared.Models
+@attribute [Authorize]
+@inject HttpClient Http
+
+@if (dashboardVM == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <DashboardView DashboardVM="dashboardVM" />
+    <div class="col-md-12">
+        <YahooFinanceChart TrendingTickersData="dashboardVM.TrendingTickers"></YahooFinanceChart>
+    </div>
+}
+
+@code {
+    private DashboardResponseViewModel dashboardVM;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            dashboardVM = await Http.GetFromJsonAsync<DashboardResponseViewModel>("api/Dashboard");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}

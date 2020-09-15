@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/CashDeskDemoApp/Client/obj
+/CashDeskDemoApp/Server/obj
+/CashDeskDemoApp/Client/bin
+/CashDeskDemoApp/Server/bin
+/CashDeskDemoApp/Shared
+/CashDeskDemoApp.Core
+/CashDeskDemoApp.Repositories
+/CashDeskDemoApp.UnitTests/obj
+/CashDeskDemoApp.UnitTests/bin
+/CashDeskDemoApp.Services.External/obj
+/CashDeskDemoApp.Services.External/bin
+/CashDeskDemoApp.Services/obj
+/CashDeskDemoApp.Services/bin

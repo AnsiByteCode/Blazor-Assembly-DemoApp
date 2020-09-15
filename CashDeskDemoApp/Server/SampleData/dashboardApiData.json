@@ -1,0 +1,131 @@
+{
+    "locationDetails": {
+        "ip": "122.170.119.185",
+        "location": "Mumbai, India, Asia",
+        "createDate": "0001-01-01T00:00:00"
+    },
+    "topExchangeRates": [
+        {
+            "currency": "CAD",
+            "latestValue": 1.3178673865,
+            "diffValue": 0.0024821218999999672
+        },
+        {
+            "currency": "HKD",
+            "latestValue": 7.7502108993,
+            "diffValue": -0.00014778079999988591
+        },
+        {
+            "currency": "ISK",
+            "latestValue": 136.4940104606,
+            "diffValue": -1.6611081147999869
+        },
+        {
+            "currency": "PHP",
+            "latestValue": 48.5498565885,
+            "diffValue": -0.05508897650000222
+        },
+        {
+            "currency": "DKK",
+            "latestValue": 6.2765311287,
+            "diffValue": -0.00281733949999996
+        },
+        {
+            "currency": "HUF",
+            "latestValue": 301.273831618,
+            "diffValue": -0.7347767034000299
+        },
+        {
+            "currency": "CZK",
+            "latestValue": 22.4110005062,
+            "diffValue": -0.025492024799998347
+        },
+        {
+            "currency": "GBP",
+            "latestValue": 0.7795512063,
+            "diffValue": 0.006574583799999978
+        },
+        {
+            "currency": "RON",
+            "latestValue": 4.098532141,
+            "diffValue": -0.0013075079000000045
+        },
+        {
+            "currency": "SEK",
+            "latestValue": 8.7491985828,
+            "diffValue": -0.002848003400000465
+        }
+    ],
+    "trendingTickers": [
+        {
+            "symbol": "IMMU",
+            "name": "Immunomedics, Inc.",
+            "marketPrice": 42.25,
+            "marketChange": 0.3199997,
+            "marketChangePercent": 0.763176
+        },
+        {
+            "symbol": "GILD",
+            "name": "Gilead Sciences, Inc.",
+            "marketPrice": 65.58,
+            "marketChange": 1.8100014,
+            "marketChangePercent": 2.8383274
+        },
+        {
+            "symbol": "NVDA",
+            "name": "NVIDIA Corporation",
+            "marketPrice": 486.58,
+            "marketChange": -5.8900146,
+            "marketChangePercent": -1.1960149
+        },
+        {
+            "symbol": "AZN",
+            "name": "AstraZeneca PLC",
+            "marketPrice": 53.73,
+            "marketChange": 0.66,
+            "marketChangePercent": 1.24364
+        },
+        {
+            "symbol": "BTC-USD",
+            "name": null,
+            "marketPrice": 10343.537,
+            "marketChange": -109.640625,
+            "marketChangePercent": -1.0488737
+        },
+        {
+            "symbol": "NFLX",
+            "name": "Netflix, Inc.",
+            "marketPrice": 482.03,
+            "marketChange": 1.3599854,
+            "marketChangePercent": 0.28293532
+        },
+        {
+            "symbol": "WKHS",
+            "name": "Workhorse Group Inc.",
+            "marketPrice": 23.69,
+            "marketChange": 1.3000011,
+            "marketChangePercent": 5.806169
+        },
+        {
+            "symbol": "CHGG",
+            "name": "Chegg, Inc.",
+            "marketPrice": 65.65,
+            "marketChange": 0.12000275,
+            "marketChangePercent": 0.18312642
+        },
+        {
+            "symbol": "CYDY",
+            "name": "CytoDyn Inc.",
+            "marketPrice": 3.91,
+            "marketChange": -0.60000014,
+            "marketChangePercent": -13.303772
+        },
+        {
+            "symbol": "LMND",
+            "name": "Lemonade, Inc.",
+            "marketPrice": 50.12,
+            "marketChange": -2.2800026,
+            "marketChangePercent": -4.35115
+        }
+    ]
+}

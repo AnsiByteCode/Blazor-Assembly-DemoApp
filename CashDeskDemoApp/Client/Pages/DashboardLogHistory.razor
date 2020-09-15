@@ -1,0 +1,54 @@
+﻿@page "/dashboardLogHistory"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using CashDeskDemoApp.Shared.Models
+@attribute [Authorize]
+@inject HttpClient Http
+
+<h1>Dashboard Log History</h1>
+
+<p>This component demonstrates fetching data from the server for the stored data into database for Dashboard Visits.</p>
+
+@if (historyData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>Location</th>
+                <th>Create Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dataItem in historyData)
+            {
+                <tr>
+                    <td>@dataItem.IP</td>
+                    <td>@dataItem.Location</td>
+                    <td>@dataItem.CreateDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<LocationDetails> historyData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            historyData = await Http.GetFromJsonAsync<List<LocationDetails>>("api/Dashboard/loghistory");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+
+}

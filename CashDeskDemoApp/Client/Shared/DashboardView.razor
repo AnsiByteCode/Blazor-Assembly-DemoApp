@@ -1,0 +1,124 @@
+﻿@using CashDeskDemoApp.Shared.Models
+
+@if (DashboardVM != null && DashboardVM.LocationDetails != null)
+{
+    <div class="col-md-12">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h5 class="mb-0">Your Current Location</h5>
+                <span class="d-inline-block">
+                    <strong id="ip" class="d-inline-block text-success">@DashboardVM.LocationDetails.IP</strong>
+                    <small id="location" class="font-italic text-muted">From: @DashboardVM.LocationDetails.Location</small>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row">
+            @if (DashboardVM.TopExchangeRates != null)
+            {
+                var dataforExchange = DashboardVM.TopExchangeRates;
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Exchange Rates - (Base: USD)
+                        </div>
+                        <div class="card-body">
+                            <table id="exchangeRates" class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Currency</th>
+                                        <th class="text-right">Rate</th>
+                                        <th class="text-right">Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @{
+                                        foreach (var dataItem in dataforExchange)
+                                        {
+                                            <tr>
+                                                <td>@dataItem.Currency</td>
+                                                <td class="text-right">@dataItem.LatestValue.ToString("0.####")</td>
+                                                @{
+                                                    if (dataItem.DiffValue < 0)
+                                                    {
+                                                        <td class="text-right"><span class="badge badge-danger">@dataItem.DiffValue.ToString("0.####")</span></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="text-right"><span class="badge badge-success">@dataItem.DiffValue.ToString("0.####")</span></td>
+                                                    }
+                                                }
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (DashboardVM.TrendingTickers != null)
+            {
+                var dataforTickers = DashboardVM.TrendingTickers;
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            Top 10 Trending Tickers
+                        </div>
+                        <div class="card-body">
+                            <table id="trendingTickers" class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Trading Symbol</th>
+                                        <th class="text-right">Price</th>
+                                        <th class="text-right">Change</th>
+                                        <th class="text-right">%</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var trends in dataforTickers)
+                                    {
+                                        <tr>
+                                            <td>@trends.Symbol<small class="text-muted font-italic"> @trends.Name</small></td>
+                                            <td class="text-right">@trends.MarketPrice.ToString("0.##")</td>
+                                            @if (trends.MarketChange >= 0)
+                                            {
+                                                <td class="text-right text-success">@trends.MarketChange.ToString("0.##")</td>
+                                                <td class="text-right text-success">@trends.MarketChangePercent.ToString("0.##") %</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="text-right text-danger">@trends.MarketChange.ToString("0.##")</td>
+                                                <td class="text-right text-danger">@trends.MarketChangePercent.ToString("0.##") %</td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <p><em>Loading...</em></p>
+}
+
+
+@code {
+    private DashboardResponseViewModel _dashboardVM = new DashboardResponseViewModel();
+
+    [Parameter]
+    public DashboardResponseViewModel DashboardVM
+    {
+        get => _dashboardVM;
+        set => _dashboardVM = value ?? new DashboardResponseViewModel();
+    }
+}

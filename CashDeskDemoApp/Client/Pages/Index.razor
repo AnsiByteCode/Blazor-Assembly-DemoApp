@@ -1,0 +1,18 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+<AuthorizeView>
+    <Authorized>
+        @if (context.User.Identity.IsAuthenticated)
+        {
+            <Dashboard />
+        }
+    </Authorized>
+    <NotAuthorized>
+        <h1>Welcome to CashDesk Demo Application.</h1>
+
+        This application is created as a POC for standard assignment shared with us.
+    </NotAuthorized>
+</AuthorizeView>

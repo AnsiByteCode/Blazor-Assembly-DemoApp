@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>CashDeskDemoApp.Server-7D197055-2DD8-41B3-8777-E33576126150</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200913035124_DashboardLogHistory.cs" />
+    <Compile Remove="Data\Migrations\20200913035124_DashboardLogHistory.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200913080352_DashboardLogHistoryAddIP.cs" />
+    <Compile Remove="Data\Migrations\20200913080352_DashboardLogHistoryAddIP.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CashDeskDemoApp.Core\CashDeskDemoApp.Data.csproj" />
+    <ProjectReference Include="..\..\CashDeskDemoApp.Services.External\CashDeskDemoApp.Services.External.csproj" />
+    <ProjectReference Include="..\..\CashDeskDemoApp.Services\CashDeskDemoApp.Services.csproj" />
+    <ProjectReference Include="..\Client\CashDeskDemoApp.Client.csproj" />
+    <ProjectReference Include="..\Shared\CashDeskDemoApp.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+</Project>

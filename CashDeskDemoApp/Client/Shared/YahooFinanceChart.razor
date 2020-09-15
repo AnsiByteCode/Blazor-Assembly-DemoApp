@@ -1,0 +1,86 @@
+﻿@using jQWidgets.Blazor.Components
+@using CashDeskDemoApp.Shared.Models
+
+<div id="chartContainer" class="padding-top-10">
+    @{
+        List<Dictionary<string, object>> sampleData = new List<Dictionary<string, object>>();
+        foreach (var item in TrendingTickersData)
+        {
+            sampleData.Add(new Dictionary<string, object>()
+        { { "Symbol", item.Symbol }, { "Percent", item.MarketChangePercent } });
+        }
+    }
+    <JqxChart title="Top 10 Trending Symbols" description=""
+              enableAnimations=true showLegend=true padding=padding titlePadding=titlePadding
+              source=sampleData xAxis=xAxis valueAxis=valueAxis seriesGroups=seriesGroups
+              colorScheme="scheme01">
+    </JqxChart>
+</div>
+@code {
+    private List<TrendingTickers> _trendingTickers = new List<TrendingTickers>();
+
+    [Parameter]
+    public List<TrendingTickers> TrendingTickersData
+    {
+        get => _trendingTickers;
+        set => _trendingTickers = value ?? new List<TrendingTickers>();
+    }
+
+    IDictionary<string, int> padding = new Dictionary<string, int>()
+{
+        { "left", 20 },
+        { "top", 5 },
+        { "right", 20 },
+        { "bottom", 5 }
+    };
+    IDictionary<string, int> titlePadding = new Dictionary<string, int>()
+{
+        { "left", 90 },
+        { "top", 0 },
+        { "right", 0 },
+        { "bottom", 10 }
+    };
+    IDictionary<string, object> xAxis = new Dictionary<string, object>()
+{
+        { "dataField", "Symbol" },
+        {
+            "gridLines",
+            new Dictionary<string, object>()
+{
+                { "visible", true }
+            }
+        },
+        { "flip", false }
+    };
+    IDictionary<string, object> valueAxis = new Dictionary<string, object>()
+{
+        { "flip", false },
+        {
+            "labels",
+            new Dictionary<string, object>()
+{
+                { "visible", true }
+            }
+        }
+    };
+    IDictionary<string, object>[] seriesGroups = new Dictionary<string, object>[]
+    {
+        new Dictionary<string, object>()
+{
+            { "type", "column" },
+            { "orientation", "vertical" },
+            { "columnsGapPercent", 50 },
+            {
+                "series",
+                new Dictionary<string, object>[]
+{
+                    new Dictionary<string, object>()
+{
+                        { "dataField", "Percent" },
+                        { "displayText", "Percentage (%)" }
+                    }
+                }
+            }
+        }
+            };
+}
